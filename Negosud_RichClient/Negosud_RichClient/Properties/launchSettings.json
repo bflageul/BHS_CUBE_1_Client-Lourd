@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Negosud_RichClient": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Windows\\win.ini"
+    }
+  }
+}
