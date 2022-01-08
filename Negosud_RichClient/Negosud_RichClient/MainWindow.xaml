@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Negosud_RichClient"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="1" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         
+        <StackPanel Orientation="Vertical" Background="Transparent">
+            <Label x:Name="lblFirstname" Margin="8,8,8,8" FontSize="12"/>
+            <Label x:Name="lblLastname" Margin="8,0,8,0" FontSize="12"/>
+        </StackPanel>
     </Grid>
 </Window>

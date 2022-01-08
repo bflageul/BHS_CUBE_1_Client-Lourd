@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Negosud_RichClient"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
+        Title="LoginWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="48" />
@@ -39,10 +39,13 @@
                     <Grid Margin="0,0,0,18">
                         <PasswordBox Background="Transparent" HorizontalContentAlignment="Center" BorderBrush="{StaticResource MainBlackFontColor}" HorizontalAlignment="Center" VerticalContentAlignment="Center"  x:Name="txtPassword" Height="36" Width="220" TabIndex="5" />
                     </Grid>
+                    
+                    <!--Database selection combo box not used yet. Need to be implemented if working with several Db-->
                     <Grid Margin="0,0,0,18">
                         <ComboBox Name="LocalDatabaseComboBox" Style="{StaticResource LoginComboboxStyle}" TabIndex="6"/>
                     </Grid>
-
+                    
+                    <!--Progress bar not used yet-->
                     <ProgressBar x:Name="LocalMetroProgressBar" Visibility="Visible" Height="16" Margin="0,4,0,8" HorizontalAlignment="Center"  Width="220" Background="Transparent" BorderBrush="{StaticResource ThemeColorBrush}" Foreground="{DynamicResource ThemeColorBrush}" BorderThickness="1" IsIndeterminate="False"/>
 
                     <Button x:Name="btnLogin" Click="BtnLogin_Click_1" Content="Login" Width="220" Height="36" Margin="0,20,0,0" TabIndex="8" />

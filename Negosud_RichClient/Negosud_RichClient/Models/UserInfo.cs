@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Negosud_RichClient.Models
 {
+
+    // Store and hold user firstname and lastname if connected
     class UserInfo
     {
-        public static String CustomerName = "";
-        public static String CustomerEmail = "";
+        public static string Firstname = "";
+        public static string Lastname = "";
     }
 }
