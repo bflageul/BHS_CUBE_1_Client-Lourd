@@ -21,13 +21,13 @@ namespace Negosud_RichClient
         private SqlConnection con;
         private SqlCommand cmd;
         private SqlDataReader reader;
-        static readonly String connectionString = ConfigurationManager.ConnectionStrings["NegosudDb"].ConnectionString;
+        static readonly String connectionString = ConfigurationManager.ConnectionStrings["NegosudDbConStr"].ConnectionString;
         //static String connectionString = @"Data Source=192.168.0.192;Initial Catalog=DBCustomer;User ID=sa;Password=1234;";
 
         // Login button method (for now, it only check if username exist, then print firstname and lastname in a new window)
         private void BtnLogin_Click_1(object sender, RoutedEventArgs e)
         {
-            String message = "Invalid Credentials";
+            String message = "Utilisateur inconnu";
             try
             {
                 con = new SqlConnection(connectionString);

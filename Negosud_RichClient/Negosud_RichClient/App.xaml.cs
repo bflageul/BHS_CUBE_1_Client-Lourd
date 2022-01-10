@@ -1,4 +1,8 @@
-﻿using System.Windows;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Negosud_RichClient.Data;
+using System.Configuration;
+using System.Windows;
 
 namespace Negosud_RichClient
 {
