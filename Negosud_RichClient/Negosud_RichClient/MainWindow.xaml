@@ -5,18 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Negosud_RichClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="categoryViewSource"/>
+        <CollectionViewSource x:Key="categoryProductsViewSource" 
+                              Source="{Binding Products, Source={StaticResource categoryViewSource}}"/>
+    </Window.Resources>
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
+            <RowDefinition Height="100" />
             <RowDefinition Height="1" />
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <StackPanel Orientation="Vertical" Background="Transparent">
-            <Label x:Name="lblFirstname" Margin="8,8,8,8" FontSize="12"/>
-            <Label x:Name="lblLastname" Margin="8,0,8,0" FontSize="12"/>
-        </StackPanel>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Vertical" Background="AliceBlue">
+                <Label x:Name="lblFirstname" Margin="8,8,8,8" FontSize="14" Height="25" Width="50"/>
+                <Label x:Name="lblLastname" Margin="8,0,8,0" FontSize="14" Height="25" Width="50"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2">
+            <DataGrid x:Name="categoryDataGrid" AutoGenerateColumns="False" 
+          EnableRowVirtualization="True" 
+          ItemsSource="{Binding Source={StaticResource categoryViewSource}}" 
+          Margin="13,13,43,229" RowDetailsVisibilityMode="VisibleWhenSelected">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Username}" Header="Userame" Width="150" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding Firstname}" Header="Firstname" Width="150"/>
+                    <DataGridTextColumn Binding="{Binding Lastname}" Header="Lastname" Width="150"/>
+                    <DataGridHyperlinkColumn Binding="{Binding HashPassword}" Header="Hashpassword" Width="150"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="productsDataGrid" AutoGenerateColumns="False" 
+          EnableRowVirtualization="True" 
+          ItemsSource="{Binding Source={StaticResource categoryProductsViewSource}}" 
+          Margin="13,205,43,108" RowDetailsVisibilityMode="VisibleWhenSelected" 
+          RenderTransformOrigin="0.488,0.251">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding CategoryId}" Header="Category Id" Width="SizeToHeader" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding ProductId}" Header="Product Id" Width="SizeToHeader" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Save" HorizontalAlignment="Center" Margin="0,240,0,0" 
+        Click="Button_Click" Height="20" Width="123"/>
+        </Grid>
     </Grid>
 </Window>

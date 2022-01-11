@@ -11,11 +11,27 @@ namespace Negosud_RichClient
     /// </summary>
     public partial class App : Application
     {
+        private readonly ServiceProvider serviceProvider;
+
+        public App()
+        {
+            ServiceCollection services = new ServiceCollection();
+
+            services.AddDbContext<NegosudDbContext>(options =>
+            {
+                options.UseSqlServer(ConfigurationManager.ConnectionStrings["NegosudDbConStr"].ConnectionString);
+            });
+
+            services.AddSingleton<ProductWindow>();
+            serviceProvider = services.BuildServiceProvider();
+        }
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            LoginWindow window = new();
-            //if (e.Args.Length == 1)
-            //	MessageBox.Show("Now opening file: \n\n" + e.Args[0]);
+            //MainWindow window = new();
+            //window.Show();
+
+            ProductWindow window = serviceProvider.GetService<ProductWindow>();
             window.Show();
         }
     }
