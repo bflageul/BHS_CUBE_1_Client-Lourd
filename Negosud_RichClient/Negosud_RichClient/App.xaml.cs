@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Negosud_RichClient.Data;
+using Negosud_RichClient.PasswordHash;
 using System.Configuration;
 using System.Windows;
 
@@ -21,18 +22,19 @@ namespace Negosud_RichClient
             {
                 options.UseSqlServer(ConfigurationManager.ConnectionStrings["NegosudDbConStr"].ConnectionString);
             });
-
-            services.AddSingleton<ProductWindow>();
+            services.AddScoped<PwdHasher>();
+            services.AddOptions();
+            services.AddSingleton<LoginWindow>();
             serviceProvider = services.BuildServiceProvider();
         }
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            //MainWindow window = new();
-            //window.Show();
-
-            ProductWindow window = serviceProvider.GetService<ProductWindow>();
+            LoginWindow window = new LoginWindow(serviceProvider.GetService<PwdHasher>());
             window.Show();
+
+            //ProductWindow window = serviceProvider.GetService<ProductWindow>();
+            //window.Show();
         }
     }
 }
