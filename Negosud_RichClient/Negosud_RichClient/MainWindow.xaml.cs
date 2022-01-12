@@ -23,8 +23,7 @@ namespace Negosud_RichClient
             lblFirstname.Content = UserInfo.Firstname;
             lblLastname.Content = UserInfo.Lastname;
 
-            categoryViewSource =
-                (CollectionViewSource)FindResource(nameof(categoryViewSource));
+            categoryViewSource = (CollectionViewSource)FindResource(nameof(categoryViewSource));
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -57,6 +56,13 @@ namespace Negosud_RichClient
             // clean up database connections
             _context.Dispose();
             base.OnClosing(e);
+        }
+
+        private void BtnMenu(object sender, RoutedEventArgs e)
+        {
+            MenuWindow window = new();
+            window.Show();
+            this.Close();
         }
     }
 }

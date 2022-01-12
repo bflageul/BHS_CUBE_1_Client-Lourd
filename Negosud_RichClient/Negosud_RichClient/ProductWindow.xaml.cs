@@ -71,5 +71,11 @@ namespace Negosud_RichClient
             GetProducts();
         }
 
+        private void BtnMenu(object sender, RoutedEventArgs e)
+        {
+            MenuWindow window = new();
+            window.Show();
+            this.Close();
+        }
     }
 }

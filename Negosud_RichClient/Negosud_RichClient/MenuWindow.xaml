@@ -1,0 +1,45 @@
+﻿<Window x:Class="Negosud_RichClient.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Negosud_RichClient"
+        mc:Ignorable="d"
+        Title="MenuWindow" Height="450" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" Width="120" Click="BtnUserlist" Content="Liste des utilisateurs" Margin="5"
+                            HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Button Grid.Row="0" Grid.Column="1" Width="120" Click="BtnProduct" Content="Liste des produits" Margin="5"
+                            HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <StackPanel Orientation="Vertical">
+                <Label x:Name="lblFirstname" Margin="8,8,8,8" FontSize="14" Height="25" Width="50"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Button Grid.Row="0" Grid.Column="1" Width="120" Click="BtnMain" Content="...vers page de test" Margin="5"
+                            HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        </Grid>
+    </Grid>
+</Window>

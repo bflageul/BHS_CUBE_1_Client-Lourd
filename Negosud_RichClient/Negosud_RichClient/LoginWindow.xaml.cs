@@ -30,8 +30,8 @@ namespace Negosud_RichClient
 
             if (logResult is true)
             {
-                MainWindow mainWindow = new();
-                mainWindow.Show();
+                MenuWindow window = new();
+                window.Show();
                 this.Close();
             }
             else

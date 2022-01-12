@@ -22,6 +22,7 @@ namespace Negosud_RichClient
             {
                 options.UseSqlServer(ConfigurationManager.ConnectionStrings["NegosudDbConStr"].ConnectionString);
             });
+            services.AddScoped<NegosudDbContext>();
             services.AddScoped<PwdHasher>();
             services.AddOptions();
             services.AddSingleton<LoginWindow>();

@@ -12,18 +12,19 @@
                               Source="{Binding Products, Source={StaticResource categoryViewSource}}"/>
     </Window.Resources>
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
             <RowDefinition Height="1" />
             <RowDefinition/>
         </Grid.RowDefinitions>
+        
         <Grid Grid.Row="0">
             <StackPanel Orientation="Vertical" Background="AliceBlue">
                 <Label x:Name="lblFirstname" Margin="8,8,8,8" FontSize="14" Height="25" Width="50"/>
                 <Label x:Name="lblLastname" Margin="8,0,8,0" FontSize="14" Height="25" Width="50"/>
             </StackPanel>
         </Grid>
+        
         <Grid Grid.Row="2">
             <DataGrid x:Name="categoryDataGrid" AutoGenerateColumns="False" 
           EnableRowVirtualization="True" 
@@ -47,8 +48,8 @@
                     <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button Content="Save" HorizontalAlignment="Center" Margin="0,240,0,0" 
-        Click="Button_Click" Height="20" Width="123"/>
-        </Grid>
+            <Button Content="Save" HorizontalAlignment="Center" Margin="0,240,0,0" Click="Button_Click" Height="20" Width="123"/>
+            <Button Grid.Row="0" Grid.Column="1" Width="120" Click="BtnMenu" Content="...vers menu principal" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            </Grid>
     </Grid>
 </Window>
